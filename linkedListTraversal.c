@@ -1,9 +1,23 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<stdbool.h>
 
 struct Node{
 	int data;
 	struct Node *next;
+}
+bool peek(Node * top, int index){
+	Node * ptr = top;
+	for(int i=index; i>0; i--){
+		if(ptr != NULL)
+			ptr = ptr->next;
+		else{
+			printf("\nNot that much elements in stack!\n");
+			return false;
+		}
+	}
+	printf("\nThe value at index %d is %d\n", index, ptr->data);
+	return true;
 };
 
 void linkedListTraverse(struct Node *ptr){
